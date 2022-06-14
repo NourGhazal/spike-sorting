@@ -1,0 +1,4 @@
+for electrode 1:
+2 
+for electrode 2:
+2
