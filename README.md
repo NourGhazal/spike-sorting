@@ -4,7 +4,7 @@ In this project Spike sorting algorithm was implemented with the following conve
 - The data consists of 2 separate electrodes
 - The extracted spikes duration is 2 msec (49 samples)
 
-After extracting the spikes each sample of the 49 samples was considered a dimension and principal components analysis (PCA) was used to reduce those dimensions to 2 dimensions in order to do manual visual inspections to determine the number of k clusters.\
+After extracting the spikes each sample of the 49 samples was considered as a dimension and principal components analysis (PCA) was used to reduce those dimensions to 2 dimensions in order to do manual visual inspections to determine the number of k clusters.\
 K means clustering was used to determine deferent spikes and the average  of each cluster was plotted.\
 The clustering is repeated for threshold considered as 3.5 * noise and 5 * noise for each electrode.\
 Run pip install -r requirements.txt before running the code.\
