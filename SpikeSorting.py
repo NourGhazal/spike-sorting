@@ -37,9 +37,9 @@ def get2dRepresentation(spikes,electrode_number,factor,saveFig):
     plt.scatter(x,y)
     if(saveFig):
         if(factor == 3.5):
-            plt.savefig("FeatureSpace_{}_3_5.jpg".format(electrode_number))
+            plt.savefig("Output_images/FeatureSpace_{}_3_5.jpg".format(electrode_number))
         elif factor ==5:
-            plt.savefig("FeatureSpace_{}_5.jpg".format(electrode_number))
+            plt.savefig("Output_images/FeatureSpace_{}_5.jpg".format(electrode_number))
     return spikes_pca
 
 def detectSpikePeaks(filtered_signal,tWindow,threshold):
@@ -75,9 +75,9 @@ def detectClusters(spikes,electrode_number,factor,saveFig):
     plt.scatter(centroids[:,0],centroids[:,1],color='black',marker='x',s=150)
     if(saveFig):
         if(factor == 3.5):
-            plt.savefig("Clusters_{}_3_5.jpg".format(electrode_number))
+            plt.savefig("Output_images/Clusters_{}_3_5.jpg".format(electrode_number))
         elif factor ==5:
-            plt.savefig("Clusters_{}_5.jpg".format(electrode_number))
+            plt.savefig("Output_images/Clusters_{}_5.jpg".format(electrode_number))
     plt.close()
     return {"labels":labels,"centroids":centroids}
 
@@ -128,9 +128,9 @@ def plotDetectedSpikes(rectified_data,spikesDict,electrode_number,labels,factor)
         spikesPeaks.append(rectified_data[offsets[i]])
     plt.scatter(offsets,spikesPeaks,c=labels,cmap='rainbow')
     if(factor == 3.5):
-        plt.savefig("DetectedSpikes{}_3_5.jpg".format(electrode_number))
+        plt.savefig("Output_images/Output_images/DetectedSpikes{}_3_5.jpg".format(electrode_number))
     elif factor ==5:
-        plt.savefig("DetectedSpikes{}_5.jpg".format(electrode_number))
+        plt.savefig("Output_images/DetectedSpikes{}_5.jpg".format(electrode_number))
     plt.close()
 
 def plotSpikesMeans(spikesToElectrode,labestoElectrode,factor):
@@ -153,9 +153,9 @@ def plotSpikesMeans(spikesToElectrode,labestoElectrode,factor):
                 ourColor = ourColors[str(uniqueLabels[i]+1)]
             ax1.plot(np.arange(len(spikes_mean)),spikes_mean,color=ourColor)
     if(factor==3.5):
-        plt.savefig("Templates_3_5.jpg")
+        plt.savefig("Output_images/Templates_3_5.jpg")
     elif factor==5:
-        plt.savefig("Templates_5.jpg")
+        plt.savefig("Output_images/Templates_5.jpg")
     plt.close()
         
     # for key in returnData['detectedMus'].keys():
@@ -168,11 +168,11 @@ def plotSpikesMeans(spikesToElectrode,labestoElectrode,factor):
     #         if(ourColors.__contains__(key)):
     #             ourColor = ourColors[key]
     #         ax1.plot(t,muap,color=ourColor)
-    # plt.savefig("Templates.jpg")
+    # plt.savefig("Output_images/Templates.jpg")
 
 
 def startSpikeVisualization():
-    data = np.loadtxt("Data.txt")
+    data = np.loadtxt("Data/Data.txt")
     tWindow=49
     data= np.transpose(data)
     factors = [3.5,5]
@@ -190,7 +190,7 @@ def startSpikeVisualization():
         
 
 def startPlottingSpikesOnData(limit):
-    data = np.loadtxt("Data.txt")
+    data = np.loadtxt("Data/Data.txt")
     tWindow=49
     data= np.transpose(data[0:limit])
     factors = [3.5,5]
